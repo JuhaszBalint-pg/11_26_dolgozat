@@ -56,7 +56,7 @@ for i in szamok:
 print(f'{husz_nagyobb} szám nagyobb húsznál') 
 
 print('4.feladat')
-legkis_pozitiv = 1000000000000000
+legkis_pozitiv = szamok.index(0)
 for i in szamok:
     if i < legkis_pozitiv and i > 0:
         legkis_pozitiv = i
@@ -71,5 +71,8 @@ for i in szamok:
         negativ_szamok.append(i)
         negativ_összegek += i
 
-negativ_atlag = negativ_összegek/len(negativ_szamok)
-print(f'{negativ_atlag} a negativ számok átlaga')
+try:
+    negativ_atlag = negativ_összegek/len(negativ_szamok)
+    print(f'{negativ_atlag} a negativ számok átlaga')
+except ZeroDivisionError as e:
+    print(f'{e} - nem lehet nullával osztani')
